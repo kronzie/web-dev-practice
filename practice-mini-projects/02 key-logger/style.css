@@ -36,6 +36,11 @@ button {
     margin-top: 12px;
 }
 .orange{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: rgb(72, 72, 72);
     background-color: orange;
     height: 75px;
     width: 600px;
@@ -44,6 +49,11 @@ button {
 }
 
 .black{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: rgb(195, 126, 0);
     background-color: rgb(72, 72, 72);
     height: 75px;
     width: 600px;
