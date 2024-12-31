@@ -80,3 +80,5 @@ function reset(){
     heartLeft.textContent = ``;
     displayedGuessNumber.textContent = "?";
 }
+
+// Mini-Project Succesfully completed
