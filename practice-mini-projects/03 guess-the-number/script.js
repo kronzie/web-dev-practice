@@ -4,9 +4,15 @@ let guessBox = document.querySelector('.guess');
 let checkBtn = document.querySelector('.check');
 let againBtn = document.querySelector('.again');
 let message = document.querySelector('.message');
+let lifeTracker = document.querySelector('.life-tracker');
+let heartLeft = document.querySelector('.heart-left');
 
 let randomNumber = getRandomNumber();
 let checkCount = 0;
+
+let modLifeArr;
+let lifeArr = ["💗","💗","💗","💗","💗"];
+lifeTracker.textContent = "Life left: " + lifeArr;
 
 checkBtn.addEventListener("click", () =>{
     console.log("Check count is " + checkCount);
@@ -28,17 +34,29 @@ function checkGuessedNumber (){
     if (guessBox.value == randomNumber){
         console.log("You guessed it right.");
         document.body.style.backgroundColor = "#60b347";
+        
         message.textContent = "You guessed it right. Press 'Again' to play again.";
+        heartLeft.textContent = `You had ${modLifeArr} left.`;
     }
     else {
+
         message.textContent = "You guessed it wrong.";
         console.log("You guessed it wrong.");
+        modLifeArr = lifeArr.slice(0, (-checkCount) - 1);
+        lifeTracker.textContent = "Life left: " + modLifeArr;
+
+        if (guessBox.value > randomNumber){
+            message.textContent += "📈 Too High.";
+        } else {
+            message.textContent += "📉 Too Low."
+        }
+
         checkCount++;
     }
 }
 
 function playerlife(life){
-    if(life == 3){
+    if(life == 5){
         document.body.style.backgroundColor = "#d84040";
         message.textContent = "You Lost. Press 'Again' to continue.";
     }
@@ -50,4 +68,6 @@ function reset(){
     guessBox.value = "";
     checkCount = 0;
     randomNumber = getRandomNumber();
+    lifeTracker.textContent = "Life left: " + lifeArr;
+    heartLeft.textContent = ``;
 }

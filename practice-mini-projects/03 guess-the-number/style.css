@@ -76,6 +76,13 @@ h1 {
   right: 2rem;
 }
 
+.life-tracker {
+  font-size: 1.8rem;
+  position: fixed;
+  top: 4rem;
+  right: 2rem;
+}
+
 .again {
   position: absolute;
   top: 2rem;
