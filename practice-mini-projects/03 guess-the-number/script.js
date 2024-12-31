@@ -6,6 +6,7 @@ let againBtn = document.querySelector('.again');
 let message = document.querySelector('.message');
 let lifeTracker = document.querySelector('.life-tracker');
 let heartLeft = document.querySelector('.heart-left');
+let displayedGuessNumber = document.querySelector('.number');
 
 let randomNumber = getRandomNumber();
 let checkCount = 0;
@@ -31,13 +32,16 @@ function getRandomNumber() {
 }
 
 function checkGuessedNumber (){
+
+    //Win
     if (guessBox.value == randomNumber){
         console.log("You guessed it right.");
         document.body.style.backgroundColor = "#60b347";
-        
+        displayedGuessNumber.textContent = randomNumber;
         message.textContent = "You guessed it right. Press 'Again' to play again.";
         heartLeft.textContent = `You had ${modLifeArr} left.`;
     }
+    //Lose
     else {
 
         message.textContent = "You guessed it wrong.";
@@ -55,9 +59,13 @@ function checkGuessedNumber (){
     }
 }
 
+//Funtion for life of player
 function playerlife(life){
     if(life == 5){
         document.body.style.backgroundColor = "#d84040";
+        message.textContent = "You Lost. Press 'Again' to continue.";
+    }
+    else if (life > 5){
         message.textContent = "You Lost. Press 'Again' to continue.";
     }
 }
@@ -70,4 +78,5 @@ function reset(){
     randomNumber = getRandomNumber();
     lifeTracker.textContent = "Life left: " + lifeArr;
     heartLeft.textContent = ``;
+    displayedGuessNumber.textContent = "?";
 }
