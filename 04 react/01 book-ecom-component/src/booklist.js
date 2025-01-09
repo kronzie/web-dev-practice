@@ -3,8 +3,7 @@ import Book from './book'
 const BookList = () => {
   return (
     <div>
-        <Book/>
-        <p className="">Hi</p>
+        <Book></Book>
     </div>
   )
 }
